@@ -10,7 +10,9 @@ module.exports = function (context, myTimer) {
       access_token_secret: process.env.ACCESS_TOKEN_SECRET,
       timeout_ms: 60*1000,
     });
-    twit.post('statuses/update', { status: 'Hello!' }, function(err, data, response) {
+
+    let number = Math.random() * 100000;
+    twit.post('statuses/update', { status: `Hello! ${number}` }, function(err, data, response) {
         context.log(data);
         context.log.error(err);
         //console.log(err, data, response);
