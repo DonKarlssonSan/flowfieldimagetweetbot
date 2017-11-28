@@ -3,6 +3,7 @@ const Jimp = require('jimp');
 const SimplexNoise = require('simplex-noise');
 
 module.exports.generate = function () {
+    console.log('About to generate image');
     let simplex = new SimplexNoise(Math.random);
     let width = 500;
     let height = 500;
@@ -22,6 +23,7 @@ module.exports.generate = function () {
             if (err) reject(err);
             fs.readFile('img.png', { encoding: 'base64' }, (err, data) => {
                 if (err) reject(err);
+                console.log('Image generated');
                 resolve(data);
             });
         });
