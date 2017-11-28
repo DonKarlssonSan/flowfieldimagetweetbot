@@ -17,15 +17,11 @@ module.exports.generate = function (log) {
         }
     }
     
-    // TODO: keep the data in memory instead of writing to disk and then reading from disk
     return new Promise((resolve, reject) => {
-        image.write('img.png', err => {
+        image.getBase64(Jimp.MIME_PNG, (err, buffer) => {
             if (err) reject(err);
-            fs.readFile('img.png', { encoding: 'base64' }, (err, data) => {
-                if (err) reject(err);
-                log('Image generated');
-                resolve(data);
-            });
+            log('Image generated');
+            resolve(buffer);
         });
     });
 }

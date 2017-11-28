@@ -1,6 +1,6 @@
 const Twit = require('twit');
 
-module.exports.tweetImage = function (base64content) {
+module.exports.tweetImage = function (buffer) {
     let twit = new Twit({
         consumer_key: process.env.CONSUMER_KEY,
         consumer_secret: process.env.CONSUMER_SECRET,
@@ -9,6 +9,7 @@ module.exports.tweetImage = function (base64content) {
         timeout_ms: 60*1000,
     });
 
+    let base64content = buffer.toString('base64').replace('data:image/png;base64,', '');
 
     return new Promise((resolve, reject) => {
         // first we must post the media to Twitter
