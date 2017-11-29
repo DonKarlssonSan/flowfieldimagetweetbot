@@ -10,8 +10,9 @@
   "author": "Johan Karlsson",
   "license": "ISC",
   "dependencies": {
-    "jimp": "^0.2.28",
+    "canvas": "^2.0.0-alpha.6",
     "simplex-noise": "^2.3.0",
-    "twit": "^2.2.9"
+    "twit": "^2.2.9",
+    "vectory-lib": "0.0.1"
   }
 }
