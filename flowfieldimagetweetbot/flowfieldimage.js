@@ -3,7 +3,8 @@
 const SimplexNoise = require('simplex-noise');
 const Particle = require('./particle');
 const Vector = require('vectory-lib');
-const { createCanvas, loadImage } = require('canvas');
+//const { createCanvas, loadImage } = require('canvas-prebuilt');
+const Canvas = require('canvas-prebuilt');
 
 let canvas;
 let ctx;
@@ -52,24 +53,25 @@ function setup() {
         lengthZoom: 70,
         noiseSpeed: 70,
         particleSpeed: 4,
-        numberOfParticles: 1000,
+        numberOfParticles: 600,
         fieldForce: 10,
         clearAlpha: 0,
-        iterations: 1500,
+        iterations: 1000,
     };
 
     colorConfig = {
         particleOpacity: 100,
         baseHue: 120,
         hueRange: 90,
-        hueSpeed: 10,
+        hueSpeed: 20,
         colorSaturation: 100,
     };
 
     simplex = new SimplexNoise(Math.random);
     w = config.width;
     h = config.height;
-    canvas = createCanvas(w, h);
+    //canvas = createCanvas(w, h);
+    canvas = new Canvas(w, h);
     ctx = canvas.getContext("2d");
     columns = Math.floor(w / size) + 1;
     rows = Math.floor(h / size) + 1;
