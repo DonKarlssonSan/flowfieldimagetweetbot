@@ -10,7 +10,7 @@
   "author": "Johan Karlsson",
   "license": "ISC",
   "dependencies": {
-    "canvas-prebuilt": "^1.6.5-prerelease.1",
+    "canvas-prebuilt": "^2.0.0-alpha.5",
     "simplex-noise": "^2.3.0",
     "twit": "^2.2.9",
     "vectory-lib": "0.0.1"
